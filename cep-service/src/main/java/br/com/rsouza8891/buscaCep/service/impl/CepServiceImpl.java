@@ -1,5 +1,6 @@
 package br.com.rsouza8891.buscaCep.service.impl;
 
+import br.com.rsouza8891.buscaCep.exception.CepNotFoundException;
 import br.com.rsouza8891.buscaCep.model.CepLog;
 import br.com.rsouza8891.buscaCep.model.CepResposta;
 import br.com.rsouza8891.buscaCep.repository.CepLogRepository;
@@ -22,6 +23,7 @@ public class CepServiceImpl implements CepService {
 
     @Override
     public CepResposta buscarCep(String cep) {
+        try {
 
         CepResposta resposta = externalCepService.consultarApiExterna(cep);
 
@@ -33,6 +35,10 @@ public class CepServiceImpl implements CepService {
         cepLogRepository.save(log);
 
         return resposta;
+        } catch (CepNotFoundException ex) {
+            // Não salva no banco para CEPs não encontrados
+            throw ex;
+        }
     }
 
     private String convertToJson(CepResposta resposta) {

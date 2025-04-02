@@ -1,0 +1,12 @@
+{
+  "cep": "{{request.pathSegments.[1]}}",
+  "logradouro": "Rua {{randomValue length=5 type='ALPHANUMERIC'}}",
+  "complemento": "",
+  "bairro": "Bairro {{randomValue length=6 type='ALPHANUMERIC'}}",
+  "localidade": "Cidade {{randomValue length=5 type='ALPHANUMERIC'}}",
+  "uf": "SP",
+  "ibge": "{{randomValue length=7 type='NUMERIC'}}",
+  "gia": "{{randomValue length=4 type='NUMERIC'}}",
+  "ddd": "{{randomValue length=2 type='NUMERIC'}}",
+  "siafi": "{{randomValue length=4 type='NUMERIC'}}"
+}

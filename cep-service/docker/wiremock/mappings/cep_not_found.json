@@ -1,0 +1,15 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPattern": "/ws/999999999/json/"
+  },
+  "response": {
+    "status": 404,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "erro": true
+    }
+  }
+}

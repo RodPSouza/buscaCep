@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPattern": "/ws/([0-9]{8})/json/"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "bodyFileName": "cep_response.json",
+    "transformers": ["response-template"]
+  }
+}

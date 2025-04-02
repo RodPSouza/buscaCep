@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+
+  wiremock:
+    image: wiremock/wiremock:latest
+    container_name: cep-wiremock
+    ports:
+      - "8089:8080"
+    volumes:
+      - ./docker/wiremock/mappings:/home/wiremock/mappings
+      - ./docker/wiremock/__files:/home/wiremock/__files
+    environment:
+      - WIREMOCK_OPTIONS=--verbose
+    networks:
+      - cep-network
+
+networks:
+  cep-network:
+    driver: bridge
